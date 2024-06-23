@@ -43,7 +43,7 @@ export default class News extends Component {
         <div className="spinner-border text-primary" style={{width: '15vh', height: '15vh'}} role="status">
   <span className="visually-hidden ">Loading...</span>
 </div></div>):(<><div className="container">
-            <h1>NewsMonkey - Top Headlines</h1>
+            <h1>NewsMonkey - {this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines</h1>
             <h6>{"Showing "+ this.state.page + " out of " + Math.ceil(this.state.totalResults/this.props.pageItem) + " Pages"}</h6>
             <div className="row">
               {this.state.articles.map((element) => {
