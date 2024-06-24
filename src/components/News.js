@@ -2,14 +2,14 @@ import React, { Component } from 'react'
 import Newsitem from "./Newsitem";
 
 export default class News extends Component {   
-    constructor()  {
-        super();
+    constructor(props)  {
+        super(props);
         this.state = {
         articles: [],
         loading: true,
         page: 1
     }
-    
+  document.title = `NewsMonkey - ${this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)}`;
 }
     async componentDidMount(){
         await this.basic(this.props.country, this.props.pageItem, this.state.page, this.props.category);
