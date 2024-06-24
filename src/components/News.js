@@ -17,17 +17,22 @@ export default class News extends Component {
         await this.basic(this.props.country, this.props.pageItem, this.state.page, this.props.category);
     }
    basic = async(bcountry, bpageItem, bpage, bcategory) =>{
+    this.props.setProgress(19);
     this.setState({loading: true});
-    let url = `https://newsapi.org/v2/top-headlines?country=${bcountry}&category=${bcategory}&apiKey=f42e54b9f6c749809d3460ed330eab5b&language=en&pageSize=${bpageItem}&page=${bpage}`;
+    this.props.setProgress(27);
+    let url = `https://newsapi.org/v2/top-headlines?country=${bcountry}&category=${bcategory}&apiKey=8a6e8831f15a4bac8340eda5e2c9cded&language=en&pageSize=${bpageItem}&page=${bpage}`;
     let data = await fetch(url);
+    this.props.setProgress(65);
     let pdata = await data.json();
+    this.props.setProgress(85);
     this.setState({ articles: pdata.articles, loading: false, totalResults : pdata.totalResults});
+    this.props.setProgress(100);
     }
 
     nextPage = async() =>{
     
       console.log(this.state.articles.length !== this.state.totalResults, this.state.articles.length, this.state.totalResults)
-    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=f42e54b9f6c749809d3460ed330eab5b&language=en&pageSize=${this.props.pageItem}&page=${this.state.page+1}`;
+    let url = `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=8a6e8831f15a4bac8340eda5e2c9cded&language=en&pageSize=${this.props.pageItem}&page=${this.state.page+1}`;
     let data = await fetch(url);
     let pdata = await data.json();
     this.setState({ articles: this.state.articles.concat(pdata.articles), totalResults : pdata.totalResults , page: this.state.page+1});
@@ -43,6 +48,7 @@ export default class News extends Component {
 
     render() {    
     return (<>
+    
       {this.state.loading === true? (<div className="d-flex justify-content-center align-items-center" style={{height:'100vh'}}>
         <div className="spinner-border text-primary" style={{width: '15vh', height: '15vh'}} role="status">
   <span className="visually-hidden ">Loading...</span>
