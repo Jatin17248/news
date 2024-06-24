@@ -8,7 +8,7 @@ export default class Newsitem extends Component {
       <div>
               <div className="card my-2" >
 
-        <span class="position-absolute top-0  translate-middle badge rounded-pill bg-primary" style={{left: "90%", zIndex: "1"}}>
+        <span className="position-absolute top-0  translate-middle badge rounded-pill bg-primary" style={{left: "90%", zIndex: "1"}}>
     {source}
     
   </span>
@@ -18,9 +18,9 @@ export default class Newsitem extends Component {
   <div className="card-body">
     <h5 className="card-title">{headline}...</h5>
     <p className="card-text">{description}...</p>
-    <a href={newsUrl} className="btn btn-sm btn-primary" target="_blank">Read More</a>
+    <a href={newsUrl} className="btn btn-sm btn-primary" rel="noreferrer" target="_blank">Read More</a>
   </div>
-  <div class="card-footer text-body-secondary">
+  <div className="card-footer text-body-secondary">
     By {author?author:"Unknown"} on {new Date(date).toGMTString()}
   </div>
 
