@@ -7,7 +7,7 @@ import LoadingBar from "react-top-loading-bar";
 
 const App = () => {
   const [progress, setProgress] = useState(0);
-
+  const apiKey = process.env.REACT_APP_NEWS_API_KEY;
   return (
     <>
       <BrowserRouter>
@@ -21,7 +21,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="general"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="general"
               />
@@ -34,7 +34,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="business"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="business"
               />
@@ -47,7 +47,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="entertainment"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="entertainment"
               />
@@ -60,7 +60,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="general"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="general"
               />
@@ -73,7 +73,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="health"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="health"
               />
@@ -86,7 +86,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="science"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="science"
               />
@@ -99,7 +99,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="sports"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="sports"
               />
@@ -112,7 +112,7 @@ const App = () => {
               <News
                 setProgress={setProgress}
                 key="technology"
-                country="in"
+                country="in" apiKey={apiKey}
                 pageItem="6"
                 category="technology"
               />
